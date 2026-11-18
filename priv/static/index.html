@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07121b" />
+    <title>Neon Rink — Hockey 2D</title>
+    <link rel="stylesheet" href="/assets/game.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">NR</span>
+          <div>
+            <h1>NEON RINK</h1>
+            <p>Hockey 2 vs 2 · sala única</p>
+          </div>
+        </div>
+
+        <section class="scoreboard" aria-label="Marcador">
+          <div class="team-score blue"><span>AZUL</span><strong id="blueScore">0</strong></div>
+          <div class="clock"><span>TIEMPO</span><strong id="clock">03:00</strong></div>
+          <div class="team-score red"><strong id="redScore">0</strong><span>ROJO</span></div>
+        </section>
+
+        <div id="connectionBadge" class="connection-badge connecting">
+          <span class="status-dot"></span><span id="connectionText">Conectando</span>
+        </div>
+      </header>
+
+      <section class="game-layout">
+        <aside class="side-panel players-panel">
+          <div class="panel-heading">
+            <span>JUGADORES</span><span id="playerCount" class="count-pill">0 / 4</span>
+          </div>
+          <div id="playerList" class="player-list"></div>
+          <div id="identityCard" class="identity-card hidden">
+            <span>Tu puesto</span>
+            <strong id="identityText">—</strong>
+          </div>
+        </aside>
+
+        <div class="rink-frame">
+          <canvas id="rink" width="1000" height="600" aria-label="Cancha de hockey"></canvas>
+          <div id="overlay" class="game-overlay visible" role="status">
+            <div class="overlay-card">
+              <span id="overlayKicker" class="overlay-kicker">PREPARANDO LA PISTA</span>
+              <h2 id="overlayTitle">Conectando…</h2>
+              <p id="overlayMessage">Estableciendo conexión con el servidor.</p>
+              <div id="waitingDots" class="waiting-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              <button id="rematchButton" class="primary-button hidden" type="button">JUGAR DE NUEVO</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side-panel controls-panel">
+          <div class="panel-heading"><span>CONTROLES</span></div>
+          <div class="control-block">
+            <div class="keys movement-keys" aria-label="WASD o flechas">
+              <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+            </div>
+            <div><strong>Mover</strong><span>WASD o flechas</span></div>
+          </div>
+          <div class="control-block kick-control">
+            <kbd>ESPACIO</kbd>
+            <div><strong>Golpear</strong><span>Cerca del disco</span></div>
+          </div>
+          <div class="rules-card">
+            <span>OBJETIVO</span>
+            <p>Marca más goles que el rival antes de que terminen los 3 minutos.</p>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        <span>Servidor autoritativo Elixir/OTP</span>
+        <span>La partida se pausa si alguien pierde conexión</span>
+      </footer>
+    </main>
+    <script src="/assets/game.js" defer></script>
+  </body>
+</html>
